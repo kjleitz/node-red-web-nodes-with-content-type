@@ -268,6 +268,7 @@ module.exports = function(RED) {
                         Bucket: bucket,
                         Body: stream,
                         Key: filename,
+                        ContentType: msg.contentType,
                     }, function(err) {
                         if (err) {
                             node.error(err.toString(),msg);
@@ -282,6 +283,7 @@ module.exports = function(RED) {
                         Bucket: bucket,
                         Body: RED.util.ensureBuffer(msg.payload),
                         Key: filename,
+                        ContentType: msg.contentType,
                     }, function(err) {
                         if (err) {
                             node.error(err.toString(),msg);
